@@ -1,0 +1,20 @@
+div
+    h1 #{title}
+    
+div.content
+    div.row
+        div.span12
+            h2 Kibits list:
+            each kibItem in kibItems
+                li #{kibItem.from} says: #{kibItem.text}
+
+div.content
+    div.row
+        div.span12
+            label New kibitz:
+            form(action='/posts', method='post')
+                label From:
+                input(id='from',type='text',name='from')
+                label kibitz:
+                input(id='newtext',type='text',name='newtext')
+                input(type='submit')
