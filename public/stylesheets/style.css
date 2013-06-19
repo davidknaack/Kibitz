@@ -6,3 +6,58 @@ body {
 a {
   color: #00B7FF;
 }
+
+.kibitzItem
+{
+    display: table-row;
+}
+
+.kibItemWrap
+{
+    /* obviously, I have no idea what I'm doing */
+    margin: 2px;
+}
+
+.kibitzname
+{
+    display: table-cell;
+    width: 75px;
+    vertical-align: top;
+    padding: 4px 8px;
+    background: #7EDB81;
+    border-radius: 10px;
+    text-align: right;
+}
+
+.idioticspacer
+{
+    display: table-cell;
+    width: 25px;
+}
+
+.bubble 
+{
+    display: inline-block;    
+    position: relative;
+    width: 200;
+    vertical-align: top;
+    padding: 4px 10px;
+    background: #BEDEFF;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+}
+
+.bubble:after 
+{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -25px;
+    border-style: solid;
+    border-width: 7px 28px 7px 0;
+    border-color: transparent #BEDEFF;
+    display: table-cell;
+    width: 0;
+    z-index: 1;
+}

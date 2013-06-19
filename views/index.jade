@@ -1,20 +1,40 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='icon', href='/images/siteicon.png')
+    script(src="/javascripts/jquery-1.8.1.min.js")
+    script.
+        $(document).ready(function(){
+            $("form#form").submit(function(e){
+                e.preventDefault();
+                $.post('/posta', 
+                    {from:$("#from").val(), newtext:$("#newtext").val()},
+                    function(data){ $("#kibitzs").html(data);}
+                );
+                $('#newtext').val('');
+                if ($('#from').val() !== 'guest'){
+                    $('#lblUsr').text($('#from').val()+':');
+                    $('#from').hide();
+                }
+            });
+        });
+  body
+  
 div
     h1 #{title}
     
-div.content
-    div.row
-        div.span12
-            h2 Kibits list:
-            each kibItem in kibItems
-                li #{kibItem.from} says: #{kibItem.text}
+include kibitzs    
 
 div.content
     div.row
         div.span12
-            label New kibitz:
-            form(action='/posts', method='post')
-                label From:
-                input(id='from',type='text',name='from')
-                label kibitz:
+            form(id='form')
+                if username == 'guest'
+                    label#lblUsr From:
+                    input(id='from',type='text',name='from', value='#{username}')
+                else
+                    label #{username}:
                 input(id='newtext',type='text',name='newtext')
-                input(type='submit')
+                input(type='submit',id='postButton',value='Kibitz')

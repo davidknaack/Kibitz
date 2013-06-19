@@ -3,7 +3,14 @@ var app = module.exports = express();
 var config = require('./config.js')(app, express);
 
 var dataModels = { 
-    kibitz: { kibItems: [{date: 1, from: 'nobody', text: 'empty'}] }
+    kibitz: { 
+        kibItems: [], 
+        add: function(kib){ 
+            dataModels.kibitz.kibItems.push(kib);
+            var l = dataModels.kibitz.kibItems.length
+            if ( l > 5)
+                dataModels.kibitz.kibItems = dataModels.kibitz.kibItems.slice(l-5,l);
+        }}
 };
 
 require('./routes')(app, dataModels);
