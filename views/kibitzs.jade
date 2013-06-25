@@ -1,0 +1,8 @@
+div#kibitzs.content
+    each kibItem in kibItems
+        div.kibItemWrap
+            div.kibitzItem
+                p.kibitzname #{kibItem.from}
+                div.idioticspacer
+                div.bubble 
+                    div #{kibItem.text}
