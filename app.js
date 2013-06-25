@@ -14,9 +14,6 @@ var dataModels = {
 };
 
 app.get('/', function(req, res){
-    if (app.requireAuth === true && req.loggedIn === false)
-        res.redirect('/auth/twitter');
-
     req.session.username = req.session.username||'guest';
     res.render('index.jade', {
         title: 'OMG Kibitz',
