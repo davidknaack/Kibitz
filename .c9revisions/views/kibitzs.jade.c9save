@@ -1,0 +1,3 @@
+{"ts":1372213456263,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1372213546682,"patch":[[{"diffs":[[1,"div.conent\n    div.row\n        div.span12\n            label New kibitz:\n            form(action='/posts',method='post')\n                label From:\n                input(id='from',type='text',name='form')\n                label kibitz:\n                "]],"start1":0,"start2":0,"length1":0,"length2":251}]],"length":251,"saved":false}
+{"ts":1372213578958,"patch":[[{"diffs":[[0,"kibitz:\n                "],[1,"\n                \nI like eggs\n"]],"start1":227,"start2":227,"length1":24,"length2":54}]],"length":281,"saved":false}
