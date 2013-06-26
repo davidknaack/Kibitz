@@ -1,8 +1,11 @@
-<ul class="chatlog">
-    <li ng-repeat="message in chatlog">
-        {{message.nick}}&gt; {{message.message}}
-    </li>
-</ul>
+
+<div class="kibItemWrap" ng-repeat="message in chatlog">
+    <div class="kibitzItem">
+        <p class="kibitzname">{{message.nick}}</p>
+        <div class="idioticspacer"></div>
+        <div class="bubble">{{message.message}}</div>
+  </div>
+</div>
 <form ng-submit="sendMessage()">
     {{nick}}: <input type="text" ng-model="message" placeholder="Type message here" autofocus />
 </form>
