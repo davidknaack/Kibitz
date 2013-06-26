@@ -5,8 +5,13 @@ html
     link(rel='icon', href='/images/siteicon.png')
     script(src="/javascripts/jquery-1.8.1.min.js")
     script(src="/javascripts/socket.io.js")
+    script(src="/javascripts/kibUtil.js")
     script.
         $(document).ready(function(){
+            var isActive;
+            window.onfocus = function () { isActive = true; }; 
+            window.onblur = function () { isActive = false; }; 
+
             $("form#form").submit(function(e){
                 e.preventDefault();
                 $.post('/posta', 
@@ -24,6 +29,8 @@ html
             socket.on('kibView', function (data) {
                 console.log('new kibView received');
                 $("#kibitzs").html(data);
+                if (!isActive)
+                    beep(20,0);
             });
         });
   body
