@@ -54,4 +54,5 @@ app.post('/posta', function(req, res){
 
 console.log(process.env.PORT);
 var io = require('socket.io').listen(app.listen(process.env.PORT));
-
+// fall back to ajax long-polling, AppFog doesn't support websockets.
+io.set('transports', ['xhr-polling']);
