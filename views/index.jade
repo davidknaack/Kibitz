@@ -1,17 +1,17 @@
 !!!
 html
   head
-    title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='icon', href='/images/siteicon.png')
     script(src="/javascripts/jquery-1.8.1.min.js")
+    script(src="/javascripts/socket.io.js")
     script.
         $(document).ready(function(){
             $("form#form").submit(function(e){
                 e.preventDefault();
                 $.post('/posta', 
                     {from:$("#from").val(), newtext:$("#newtext").val()},
-                    function(data){ $("#kibitzs").html(data);}
+                    function(data){ }
                 );
                 $('#newtext').val('');
                 if ($('#from').val() !== 'guest'){
@@ -19,12 +19,15 @@ html
                     $('#from').hide();
                 }
             });
+                        
+            var socket = io.connect(window.location.origin);
+            socket.on('kibView', function (data) {
+                console.log('new kibView received');
+                $("#kibitzs").html(data);
+            });
         });
   body
   
-div
-    h1 #{title}
-    
 include kibitzs    
 
 div.content
