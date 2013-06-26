@@ -8,7 +8,7 @@ html
     script(src="/javascripts/kibUtil.js")
     script.
         $(document).ready(function(){
-            var isActive;
+            var isActive = true;
             window.onfocus = function () { isActive = true; }; 
             window.onblur = function () { isActive = false; }; 
 
@@ -30,7 +30,7 @@ html
                 console.log('new kibView received');
                 $("#kibitzs").html(data);
                 if (!isActive)
-                    beep(20,0);
+                    beep(10,0);
             });
         });
   body
