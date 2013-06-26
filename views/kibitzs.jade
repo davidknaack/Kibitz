@@ -1,11 +1,9 @@
 div.conent
     div.row
         div.span12
-            label New kibitz:
-            form(action='/posts',method='post')
-                label From:
-                input(id='from',type='text',name='form')
-                label kibitz:
+            h2 Kibitz list:
+            each kibItem in kibItems
+                li #{kibItem.from} says #{kibItem.text}
                 
                 
 I like eggs
